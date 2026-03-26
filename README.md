@@ -29,8 +29,8 @@ docker network create host-1-net
 # 5. Create Shared Mount Directory
 
 ```bash
-mkdir -p /home/hima/swarm/swarm-learning/workspace/fraud-detection/tmp
-chmod -R 777 /home/hima/swarm/swarm-learning/workspace/fraud-detection/tmp
+mkdir -p fraud-detection/tmp
+chmod -R 777 fraud-detection/tmp
 ```
 
 # 6. Copy SwarmLearning Wheel and delete duplicate
