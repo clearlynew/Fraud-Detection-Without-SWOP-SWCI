@@ -33,11 +33,12 @@ mkdir -p /home/hima/swarm/swarm-learning/workspace/fraud-detection/tmp
 chmod -R 777 /home/hima/swarm/swarm-learning/workspace/fraud-detection/tmp
 ```
 
-# 6. Copy SwarmLearning Wheel
+# 6. Copy SwarmLearning Wheel and delete duplicate
 
 ```bash
 cp ~/swarm/swarm-learning/lib/swarmlearning-*.whl \
 ~/swarm/swarm-learning/workspace/fraud-detection/ml-context/
+rm swarmlearning-client-*.whl 
 ```
 
 # 7. Build ML Docker Image
