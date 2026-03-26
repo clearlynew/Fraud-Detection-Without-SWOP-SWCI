@@ -8,6 +8,7 @@ git clone https://github.com/clearlynew/Fraud-Detection-Without-SWOP-SWCI.git fr
 # 2. Generate Certificates
 
 ```bash
+cp -r examples/utils/gen-cert workspace/fraud-detection/
 ./workspace/fraud-detection/gen-cert -e fraud-detection -i 1
 ./workspace/fraud-detection/gen-cert -e fraud-detection -i 2
 ```
