@@ -83,7 +83,7 @@ hub.myenterpriselicense.hpe.com/hpe_eval/autopass/apls:9.19
 
 ---
 
-# Set Environment Variables
+# Set Environment Variables (according to hostname -I)
 
 ```bash
 export HOST_IP=172.1.1.1
@@ -145,11 +145,10 @@ swarm.blCnt : INFO : Starting SWARM-API-SERVER on port: 30304
 -v ~/swarm/swarm-learning/workspace/fraud-detection/tmp/sl1:/tmp/hpe-swarm \
 --ml-v workspace/fraud-detection/model:/tmp/test/model \
 --ml-v workspace/fraud-detection/data-and-scratch1/app-data:/app-data \
---ml-v workspace/fraud-detection/data-and-scratch1/scratch:/tmp/scratch \
 --ml-e DATA_DIR=/app-data \
 --ml-e SCRATCH_DIR=/tmp/scratch \
 --ml-e MIN_PEERS=2 \
---ml-e MAX_EPOCHS=3 \
+--ml-e MAX_EPOCHS=16 \
 --apls-ip=${APLS_IP}
 ```
 
@@ -174,7 +173,6 @@ swarm.blCnt : INFO : Starting SWARM-API-SERVER on port: 30304
 -v ~/swarm/swarm-learning/workspace/fraud-detection/tmp/sl2:/tmp/hpe-swarm \
 --ml-v workspace/fraud-detection/model:/tmp/test/model \
 --ml-v workspace/fraud-detection/data-and-scratch2/app-data:/app-data \
---ml-v workspace/fraud-detection/data-and-scratch2/scratch:/tmp/scratch \
 --ml-e DATA_DIR=/app-data \
 --ml-e SCRATCH_DIR=/tmp/scratch \
 --ml-e MIN_PEERS=2 \
