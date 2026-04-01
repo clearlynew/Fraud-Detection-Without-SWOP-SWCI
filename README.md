@@ -63,7 +63,6 @@ rm workspace/fraud-detection/ml-context/swarmlearning-client-*.whl 2>/dev/null
 # 7. Build ML Docker Image
 
 ```bash
-export DOCKER_API_VERSION=1.43
 docker build -t fraud-ml-env ~/swarm/swarm-learning/workspace/fraud-detection/ml-context
 ```
 
