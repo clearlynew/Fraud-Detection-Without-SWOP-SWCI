@@ -26,11 +26,15 @@ rm swop-* swci-*
 docker network create host-1-net
 ```
 
-# 5. Create Shared Mount Directory
+# 5. Create Separate Mount Directory
 
 ```bash
-mkdir -p fraud-detection/tmp
-chmod -R 777 fraud-detection/tmp
+sudo rm -rf ~/swarm/swarm-learning/workspace/fraud-detection/tmp
+
+mkdir -p ~/swarm/swarm-learning/workspace/fraud-detection/tmp/sl1
+mkdir -p ~/swarm/swarm-learning/workspace/fraud-detection/tmp/sl2
+
+chmod -R 777 ~/swarm/swarm-learning/workspace/fraud-detection/tmp
 ```
 
 # 6. Copy SwarmLearning Wheel and delete duplicate
@@ -91,16 +95,22 @@ swarm.blCnt : INFO : Starting SWARM-API-SERVER on port: 30304
 # 11. Run SL1
 
 ```bash
-./scripts/bin/run-sl -d --name=sl1 --network=host-1-net --host-ip=sl1 --sn-ip=sn1 --sn-api-port=30304 --sl-fs-port=16000 \
+./scripts/bin/run-sl -d --name=sl1 \
+--network=host-1-net \
+--host-ip=sl1 \
+--sn-ip=sn1 \
+--sn-api-port=30304 \
+--sl-fs-port=16000 \
 --key=workspace/fraud-detection/cert/sl-1-key.pem \
 --cert=workspace/fraud-detection/cert/sl-1-cert.pem \
 --capath=workspace/fraud-detection/cert/ca/capath \
---ml-image=fraud-ml-env --ml-name=ml1 \
+--ml-image=fraud-ml-env \
+--ml-name=ml1 \
 --ml-w=/tmp/test \
 --ml-entrypoint=python3 \
 --ml-cmd=model/fraud-detection.py \
--v /home/hima/swarm/swarm-learning/workspace/fraud-detection/tmp:/tmp/hpe-swarm \
---ml-v=/home/hima/swarm/swarm-learning/workspace/fraud-detection/tmp:/tmp/hpe-swarm \
+-v ~/swarm/swarm-learning/workspace/fraud-detection/tmp/sl1:/tmp/hpe-swarm \
+--ml-v ~/swarm/swarm-learning/workspace/fraud-detection/tmp/sl1:/tmp/hpe-swarm \
 --ml-v=workspace/fraud-detection/model:/tmp/test/model \
 --ml-v=workspace/fraud-detection/data-and-scratch1/app-data:/platform/data \
 --ml-v=workspace/fraud-detection/data-and-scratch1:/platform/scratch \
@@ -114,16 +124,22 @@ swarm.blCnt : INFO : Starting SWARM-API-SERVER on port: 30304
 # 12. Run SL2
 
 ```bash
-./scripts/bin/run-sl -d --name=sl2 --network=host-1-net --host-ip=sl2 --sn-ip=sn1 --sn-api-port=30304 --sl-fs-port=17000 \
+./scripts/bin/run-sl -d --name=sl2 \
+--network=host-1-net \
+--host-ip=sl2 \
+--sn-ip=sn1 \
+--sn-api-port=30304 \
+--sl-fs-port=17000 \
 --key=workspace/fraud-detection/cert/sl-2-key.pem \
 --cert=workspace/fraud-detection/cert/sl-2-cert.pem \
 --capath=workspace/fraud-detection/cert/ca/capath \
---ml-image=fraud-ml-env --ml-name=ml2 \
+--ml-image=fraud-ml-env \
+--ml-name=ml2 \
 --ml-w=/tmp/test \
 --ml-entrypoint=python3 \
 --ml-cmd=model/fraud-detection.py \
--v /home/hima/swarm/swarm-learning/workspace/fraud-detection/tmp:/tmp/hpe-swarm \
---ml-v=/home/hima/swarm/swarm-learning/workspace/fraud-detection/tmp:/tmp/hpe-swarm \
+-v ~/swarm/swarm-learning/workspace/fraud-detection/tmp/sl2:/tmp/hpe-swarm \
+--ml-v ~/swarm/swarm-learning/workspace/fraud-detection/tmp/sl2:/tmp/hpe-swarm \
 --ml-v=workspace/fraud-detection/model:/tmp/test/model \
 --ml-v=workspace/fraud-detection/data-and-scratch2/app-data:/platform/data \
 --ml-v=workspace/fraud-detection/data-and-scratch2:/platform/scratch \
