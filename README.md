@@ -40,8 +40,6 @@ docker network create host-1-net
 # 5. Create Separate Mount Directory
 
 ```bash
-sudo rm -rf ~/swarm-learning/workspace/fraud-detection/tmp
-
 mkdir -p ~/swarm-learning/workspace/fraud-detection/tmp/sl1
 mkdir -p ~/swarm-learning/workspace/fraud-detection/tmp/sl2
 
