@@ -53,8 +53,6 @@ chmod -R 777 ~/swarm-learning/workspace/fraud-detection/tmp
 ```bash
 cp ~/swarm-learning/lib/swarmlearning-*.whl \
 ~/swarm-learning/workspace/fraud-detection/ml-context/
-
-rm workspace/fraud-detection/ml-context/swarmlearning-client-*.whl 2>/dev/null
 ```
 
 ---
