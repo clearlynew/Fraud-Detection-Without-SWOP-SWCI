@@ -161,7 +161,7 @@ swarm.blCnt : INFO : Starting SWARM-API-SERVER on port: 30304
 --ml-e DATA_DIR=/app-data \
 --ml-e SCRATCH_DIR=/tmp/scratch \
 --ml-e MIN_PEERS=2 \
---ml-e MAX_EPOCHS=3 \
+--ml-e MAX_EPOCHS=16 \
 --apls-ip=${APLS_IP}
 ```
 
