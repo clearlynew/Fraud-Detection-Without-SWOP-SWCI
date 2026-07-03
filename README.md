@@ -17,6 +17,10 @@ This example shows the Swarm training of a Credit Card Fraud Detection model usi
 The cluster setup for this example uses only one host, as shown in the figure below:
 - host-1: 172.1.1.1
 
+|<img width="1376" height="783" alt="1000184149" src="https://github.com/user-attachments/assets/18807117-9c7b-4233-acbb-113e5f196749" />|
+|:--:|
+|<b>Figure 1: Cluster setup for the Credit card fraud detection example (no SWOP/SWCI)</b>|
+
 1. This example uses one Swarm Network (SN) node. The name of the docker container representing this node is **sn1**. sn1 is also the Sentinel Node. sn1 runs on host 172.1.1.1.
 2. Two Swarm Learning (SL) nodes are started directly, each spawning its own Machine Learning (ML) node. The names of the docker containers representing these nodes are **sl1** and **sl2**, running ML containers **ml1** and **ml2** respectively. Both run on host 172.1.1.1.
 3. Example assumes that License Server (APLS) already runs on host 172.1.1.1. All Swarm nodes connect to the License Server, on its default port 5814.
