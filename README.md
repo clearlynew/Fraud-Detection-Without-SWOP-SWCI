@@ -17,7 +17,7 @@ This example shows the Swarm training of a Credit Card Fraud Detection model usi
 The cluster setup for this example uses only one host, as shown in the figure below:
 - host-1: 172.1.1.1
 
-|<img width="1376" height="783" alt="1000184149" src="https://github.com/user-attachments/assets/18807117-9c7b-4233-acbb-113e5f196749" />|
+<img width="1376" height="783" alt="1000184149" src="https://github.com/user-attachments/assets/18807117-9c7b-4233-acbb-113e5f196749" />
 |:--:|
 |<b>Figure 1: Cluster setup for the Credit card fraud detection example (no SWOP/SWCI)</b>|
 
