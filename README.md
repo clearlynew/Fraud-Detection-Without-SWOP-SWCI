@@ -68,19 +68,12 @@ mkdir -p ~/swarm-learning/workspace/fraud-detection-without-swop-swci/tmp/sl2
 chmod -R 777 ~/swarm-learning/workspace/fraud-detection-without-swop-swci/tmp
 ```
 
-### 7. Copy SwarmLearning Wheel and delete duplicate
-```bash
-cp ~/swarm-learning/lib/swarmlearning-*.whl \
-~/swarm-learning/workspace/fraud-detection-without-swop-swci/ml-context/
-rm workspace/fraud-detection-without-swop-swci/ml-context/swarmlearning-client-*.whl 2>/dev/null
-```
-
-### 8. Build ML Docker Image
+### 7. Build ML Docker Image
 ```bash
 docker build -t fraud-ml-env ~/swarm-learning/workspace/fraud-detection-without-swop-swci/ml-context
 ```
 
-### 9. Run APLS (only if not running or not connected)
+### 8. Run APLS (only if not running or not connected)
 ```bash
 docker run -d \
 --name apls \
@@ -91,7 +84,7 @@ docker run -d \
 hub.myenterpriselicense.hpe.com/hpe_eval/autopass/apls:9.19
 ```
 
-### Set Environment Variables (according to hostname -I)
+### 9. Set Environment Variables (according to hostname -I)
 ```bash
 export HOST_IP=172.1.1.1
 export SN_IP=172.1.1.1
